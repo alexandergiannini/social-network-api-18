@@ -1,7 +1,7 @@
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const reactionSchema = new Schema({
+const reactionSchema = new Schema({ ///maybe add JSON property below?
     reactionId: {
         type: Schema.Types.ObjectId,
         default: () => new Types.ObjectId
@@ -15,7 +15,7 @@ const reactionSchema = new Schema({
         type: String,
         required: true
     },
-    createAt: {
+    createdAt: {
         type: Date,
         default: Date.now,
         get: createdAtVal => dateFormat(createdAtVal)
