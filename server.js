@@ -1,15 +1,17 @@
 const express = require('express');
+const createServer = require('./utils/server')
 const mongoose = require('mongoose'); //importing mongoose here
 
-const app = express();
+//const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+//app.use(express.json());
+//app.use(express.urlencoded({ extended: true }));
+const app = createServer();
 
-let myRoute = require('./routes')
+//let myRoute = require('./routes')
 
-app.use(myRoute);
+//app.use(myRoute);
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/3001', {
  useFindAndModify: false,
@@ -20,4 +22,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/3001', {
 // Use this to log mongo queries being executed!
 mongoose.set('debug', true);
 
-app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
+app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT} test.!.!`));
+
+module.exports = app;
